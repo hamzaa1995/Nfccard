@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de visite MDCars</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f8f8f8;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .business-card {
+            width: 350px;
+            max-height: 80vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .cover-container {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .cover-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 70%, white 100%);
+        }
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 60px 25px 25px;
+            text-align: center;
+        }
+        
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 15px 0 5px;
+            color: #222;
+            letter-spacing: 0.5px;
+        }
+        
+        .company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0.7);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 20px 0;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin: 20px 0 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .gold-divider {
+            width: 50px;
+            height: 2px;
+            background: #d4af37;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="business-card">
+        <div class="cover-container">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cover" class="cover-photo">
+            <div class="cover-fade"></div>
+        </div>
+
+        <img src="https://i.postimg.cc/MKxt0QXx/20220101-134916-1.png" alt="Hamza Assarage" class="profile-pic">
+
+        <div class="content">
+            <h1 class="name">Hamza Assarage</h1>
+            <div class="company">MDCARS</div>
+            <div class="title">Fondateur & Directeur</div>
+
+            <div class="gold-divider"></div>
+
+            <div class="social-icons">
+                <a href="https://instagram.com/mdcars" class="social-icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                </a>
+                <a href="https://wa.me/212612345678" class="social-icon" target="_blank">
+                    <img src="https://i.postimg.cc/X7TbXgJB/20250429-145524.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.mdcars.com" class="social-icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Website">
+                </a>
+            </div>
+
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Luxury Car">
+                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sports Car">
+                <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="SUV">
+            </div>
+
+            <div class="map-container">
+  <iframe 
+    src="https://www.google.com/maps?q=HXXF%2BW6M+Marrakech&output=embed" 
+    width="100%" 
+    height="100%" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
